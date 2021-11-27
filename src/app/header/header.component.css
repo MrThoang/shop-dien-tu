@@ -1,0 +1,154 @@
+/* =========== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    background-color: #D70018;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.banner-box {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.banner-phone-buy-title {
+    color: #fff;
+}
+
+.logo-img {
+    width: 160px;
+}
+
+.banner-box-item {
+    line-height: 1.2;
+}
+
+.banner-box-item i {
+    margin-right: 6px;
+}
+
+.banner-select {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.banner-select-box {
+    padding: 10px;
+}
+
+.banner-hover {
+    cursor: pointer;
+    transition: .4s;
+    padding: 4px;
+}
+
+.banner-hover:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+.banner-search-box {
+    width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.banner-user {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.banner-user-item {
+    padding: 4px;
+    line-height: 1.2;
+}
+
+.banner-user-item i {
+    font-size: 2rem;
+}
+
+.banner-select-box a {
+    color: #fff;
+}
+
+.cart-item {
+    position: absolute;
+    top: 29px;
+    right: 167px;
+    color: black;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+:host ::ng-deep .ant-btn-primary {
+    background-color: #000;
+    border-color: #000;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {}
+
+
+/* Mobile */
+
+@media (max-width: 739px) {
+    .logo-img {
+        margin-right: 14px;
+    }
+}
+
+
+/* Mobile & Tablet */
+
+@media (max-width: 1023px) {
+    .display-none {
+        display: none !important;
+    }
+    .banner-select {
+        display: none !important;
+    }
+    .banner-search-box {
+        width: auto !important;
+    }
+    .header {
+        padding: 0 12px;
+    }
+}
+
+
+/* Tablet */
+
+@media (min-width: 740px) and (max-width: 1023px) {}
+
+
+/* IPad pro */
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .display-none {
+        display: none !important;
+    }
+    .display-none {
+        display: block;
+    }
+}

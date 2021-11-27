@@ -1,0 +1,66 @@
+<div class="header">
+    <div class="banner grid wide">
+        <div class="banner-box">
+            <div class="banner-box-item d-flex ">
+                <i class="fas fa-bars font-size--26"></i>
+                <a routerLink="/home" active="true">
+                    <img class="logo-img" src="../../assets/img/logo.png" alt="">
+                </a>
+            </div>
+            <div class="banner-select">
+                <div class="banner-select-box">
+                    <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+                        <i class="fas fa-map-marker-alt"></i> Xem giá tại
+                        <i nz-icon nzType="down"></i>
+                    </a>
+                    <nz-dropdown-menu #menu="nzDropdownMenu">
+                        <ul nz-menu>
+                            <li nz-menu-item>1st menu item</li>
+                            <li nz-menu-item>2nd menu item</li>
+                        </ul>
+                    </nz-dropdown-menu>
+                </div>
+            </div>
+            <div class="banner-search-box">
+                <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                    <input type="text" nz-input placeholder="Bạn cần tìm gì?" />
+                </nz-input-group>
+                <ng-template #suffixIconButton>
+                    <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+                </ng-template>
+            </div>
+            <div class="banner-box-item d-flex banner-hover display-none ">
+                <i class="fas fa-phone-alt font-size--26"></i>
+                <a href="tel:19008198" class="banner-phone-buy-title">
+                    <p>Gọi mua hàng</p>
+                    <p>19008198</p>
+                </a>
+            </div>
+            <div class="banner-box-item d-flex banner-hover display-none">
+                <i class="fas fa-map-marker-alt font-size--26"></i>
+                <p>Cửa hàng
+                    <br> gần bạn</p>
+            </div>
+            <div class="banner-box-item d-flex banner-hover display-none">
+                <i class="fas fa-truck font-size--26"></i>
+                <p>Tra cứu
+                    <br> đơn hàng</p>
+            </div>
+            <div class="banner-box-item d-flex banner-hover display-none" routerLink="/buy" active="true">
+                <i class="fas fa-shopping-bag font-size--26 ">
+                  <p class="cart-item">1</p>
+                </i>
+                <p> Giỏ
+                    <br> hàng
+                </p>
+            </div>
+            <div class="banner-user display-none">
+                <div class="banner-user-item">
+                    <i class="far fa-user-circle font-size--26"></i>
+                    <p> Smember</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
