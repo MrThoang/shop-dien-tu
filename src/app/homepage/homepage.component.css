@@ -387,7 +387,9 @@ ul.menu-bar-item:hover>.hover-box,
     text-decoration: underline;
 }
 
-.accsessory-content {}
+.accsessory-content {
+    margin-top: 12px;
+}
 
 .list-cate {
     height: 126.86px;
@@ -471,7 +473,9 @@ ul.menu-bar-item:hover>.hover-box,
 
 /* ============ */
 
-.connect-content {}
+.connect-content {
+    margin-top: 12px;
+}
 
 .connect-item {}
 

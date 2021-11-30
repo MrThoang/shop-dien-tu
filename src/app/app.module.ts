@@ -23,6 +23,15 @@ import { NzBackTopModule } from 'ng-zorro-antd/back-top';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SwiperModule } from 'swiper/angular';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterComponent } from './register/register.component';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -31,7 +40,8 @@ import { SwiperModule } from 'swiper/angular';
     HomepageComponent,
     FooterComponent,
     DetailsProductComponent,
-    BuyProductComponent
+    BuyProductComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +60,11 @@ import { SwiperModule } from 'swiper/angular';
     FormsModule,
     NzBackTopModule,
     ReactiveFormsModule,
-    SwiperModule
+    SwiperModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

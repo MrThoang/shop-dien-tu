@@ -56,7 +56,7 @@
                     </div>
                     <div class="money-sum">
                         <p>- Tổng tiền:</p>
-                        <span>{{tongtien | currency:"VND":true}} ₫</span>
+                        <span>{{tong | currency:"VND":true}} ₫</span>
                     </div>
                 </div>
                 <div class="free-ship">
@@ -72,25 +72,25 @@
                             <nz-form-label [nzSpan]="24" nzRequired>Họ và tên (bắt buộc)</nz-form-label>
                             <nz-form-item>
                                 <nz-form-control [nzSpan]="12" nzValidatingTip="Validating...">
-                                    <input nz-input formControlName="userName" placeholder="Họ và tên" />
+                                    <input nz-input formControlName="userName" placeholder="VD: Hoàng Thoáng" />
                                 </nz-form-control>
                             </nz-form-item>
                             <nz-form-label [nzSpan]="24" nzRequired>Số điện thoại đặt hàng (bắt buộc)</nz-form-label>
                             <nz-form-item>
                                 <nz-form-control [nzSpan]="12">
-                                    <input nz-input formControlName="mobile" placeholder="mobile" />
+                                    <input nz-input formControlName="mobile" placeholder="VD: 0966666666" />
                                 </nz-form-control>
                             </nz-form-item>
                             <nz-form-label [nzSpan]="24" nzRequired>Email (Vui lòng điền email để nhận hoá đơn VAT)</nz-form-label>
                             <nz-form-item>
                                 <nz-form-control [nzSpan]="12">
-                                    <input nz-input formControlName="email" placeholder="email" type="email" />
+                                    <input nz-input formControlName="email" placeholder="VD: thoanghoang39@gmail.com" type="email" />
                                 </nz-form-control>
                             </nz-form-item>
                             <nz-form-label [nzSpan]="24" nzRequired>Lưu ý thêm của quý khách</nz-form-label>
                             <nz-form-item>
                                 <nz-form-control [nzSpan]="12">
-                                    <input nz-input formControlName="note" placeholder="note" type="text" />
+                                    <textarea formControlName="comment" nz-input rows="2" placeholder="write any thing"></textarea>
                                 </nz-form-control>
                             </nz-form-item>
                             <!--  <nz-form-item>

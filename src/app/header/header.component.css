@@ -86,17 +86,18 @@ ol {
     font-size: 2rem;
 }
 
+.banner-user a,
 .banner-select-box a {
     color: #fff;
 }
 
 .cart-item {
     position: absolute;
-    top: 29px;
-    right: 167px;
-    color: black;
+    top: 32px;
+    right: 168px;
+    color: #D70018;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 :host ::ng-deep .ant-btn-primary {

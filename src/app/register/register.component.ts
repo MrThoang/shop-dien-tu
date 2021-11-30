@@ -6,40 +6,14 @@ import { NzSafeAny } from 'ng-zorro-antd/core/types';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-buy-product',
-  templateUrl: './buy-product.component.html',
-  styleUrls: ['./buy-product.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class BuyProductComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
 
-  sohang:any = 1;
-  tien: any = 33590000;
-  tong: any = {};
-  nameProduct = "iPhone 13 Pro Max-Xám";
-
-  Cong(){
-    if(this.sohang >= 0) {
-       this.sohang = this.sohang + 1;
-       this.tong = this.tien * this.sohang;
-      }
-  }
-
-  Tru() {
-      if(this.sohang >= 2) {
-       this.sohang = this.sohang - 1;
-       this.tong = this.tien / this.sohang;
-      }
-  }
-
-  Tong() {
-    if (this.sohang && this.tong) {
-      console.log("Tên sản phẩm:",this.nameProduct," Số sảm phẩm:",this.sohang, " Tổng tiền:", this.tong +" đ")
-      return this.tong = this.tien;
-    }
-  }
   ngOnInit(): void {
-    this.Tong();
   }
 
     validateForm: FormGroup;
@@ -57,10 +31,10 @@ export class BuyProductComponent implements OnInit {
     }
   };
 
-  buyForm(): void {
+  registerForm(): void { // Hàm đăng ký
     if (this.validateForm.valid) {
-      console.log('Userbuy', this.validateForm.value);
-      alert('Đặt hàng thàng công!');
+      console.log('User-register:', this.validateForm.value);
+      alert('Đăng ký thàng công!');
        this.router.navigate(['home'])
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
@@ -72,13 +46,16 @@ export class BuyProductComponent implements OnInit {
     }
   }
 
+   validateConfirmPassword(): void {
+    setTimeout(() => this.validateForm.controls.confirm.updateValueAndValidity());
+  }
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   userNameAsyncValidator = (control: FormControl) =>
     new Observable((observer: Observer<MyValidationErrors | null>) => {
       setTimeout(() => {
         if (control.value === 'JasonWood') {
           observer.next({
-            duplicated: { 'zh-cn': `Tên bị thừa`, en: `The username is redundant!` }
+            duplicated: { 'zh-cn': `Tên bị thừa`, en: `Tên bị thừa!` }
           });
         } else {
           observer.next(null);
@@ -103,14 +80,15 @@ export class BuyProductComponent implements OnInit {
       userName: ['', [required, maxLength(50), minLength(3)], [this.userNameAsyncValidator]],
       mobile: ['', [required, mobile]],
       email: ['', [required, email]],
-      comment: ['',],
+      password: ['', [required]],
+      confirm: ['', [this.confirmValidator]]
     });
   }
 
 }
 
 // current locale is key of the MyErrorsOptions
-export type MyErrorsOptions = { 'zh-cn': string; en: string } & Record<string, NzSafeAny>;
+export type MyErrorsOptions = { en: string } & Record<string, NzSafeAny>;
 export type MyValidationErrors = Record<string, MyErrorsOptions>;
 
 export class MyValidators extends Validators {
@@ -119,7 +97,7 @@ export class MyValidators extends Validators {
       if (Validators.minLength(minLength)(control) === null) {
         return null;
       }
-      return { minlength: { 'zh-cn': `Tối thiểu là ${minLength} ký tự`, en: `Tối thiểu là ${minLength} ký tự` } };
+      return { minlength: { en: `Tối thiểu là ${minLength} ký tự` } };
     };
   }
 
@@ -128,7 +106,7 @@ export class MyValidators extends Validators {
       if (Validators.maxLength(maxLength)(control) === null) {
         return null;
       }
-      return { maxlength: { 'zh-cn': `Tối đa là ${maxLength} ký tự`, en: `Tối đa là ${maxLength} ký tự` } };
+      return { maxlength: { en: `Tối đa là ${maxLength} ký tự` } };
     };
   }
 
@@ -141,7 +119,7 @@ export class MyValidators extends Validators {
 
     return isMobile(value)
       ? null
-      : { mobile: { 'zh-cn': `Số điện thoại không đúng`, en: `Số điện thoại không đúng` } };
+      : { mobile: { en: `Số điện thoại không đúng` } };
   }
 }
 
@@ -152,3 +130,5 @@ function isEmptyInputValue(value: NzSafeAny): boolean {
 function isMobile(value: string): boolean {
   return typeof value === 'string' && /((09|03|07|08|05)+([0-9]{8})\b)/g.test(value);
 }
+
+

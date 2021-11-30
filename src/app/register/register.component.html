@@ -1,0 +1,55 @@
+<div class="form-register gird wide">
+    <div nz-row>
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="7" nzXl="7"></div>
+        <div class="form" nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="10" nzXl="10">
+            <div class="bgr-padding">
+                <div class="title">
+                    <p>Đăng ký tài khoản Smember</p>
+                </div>
+                <form nz-form [nzAutoTips]="autoTips" [formGroup]="validateForm" (ngSubmit)="registerForm()">
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="7" nzRequired>Họ và tên</nz-form-label>
+                        <nz-form-control [nzSpan]="12" nzValidatingTip="Validating...">
+                            <input nz-input formControlName="userName" placeholder="Tên đăng nhập" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="7" nzRequired>Số điện thoại</nz-form-label>
+                        <nz-form-control [nzSpan]="12">
+                            <input nz-input formControlName="mobile" placeholder="Số điện thoại" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
+                        <nz-form-control [nzSpan]="12">
+                            <input nz-input formControlName="email" placeholder="email" type="email" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="7" nzRequired>Mật khẩu</nz-form-label>
+                        <nz-form-control [nzSpan]="12" nzDisableAutoTips nzErrorTip="Vui lòng nhập mật khẩu!">
+                            <input nz-input type="password" formControlName="password" placeholder="Nhập mật khẩu" (ngModelChange)="validateConfirmPassword()" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="7" nzRequired>Nhập lại mật</nz-form-label>
+                        <nz-form-control [nzSpan]="12" nzDisableAutoTips [nzErrorTip]="passwordErrorTpl">
+                            <input nz-input type="password" formControlName="confirm" placeholder="Xác nhận mật khẩu của bạn" />
+                            <ng-template #passwordErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Vui lòng nhập lại mật khẩu!</ng-container>
+                                <ng-container *ngIf="control.hasError('confirm')">Mật khẩu không khớp!</ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                            <button nz-button nzType="primary">Đăng ký</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
+            </div>
+        </div>
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="7" nzXl="7"></div>
+    </div>
+</div>
+<app-footer></app-footer>

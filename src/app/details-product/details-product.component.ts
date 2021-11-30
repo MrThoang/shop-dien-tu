@@ -26,7 +26,7 @@ export class DetailsProductComponent implements OnInit {
     autoplay: true,
     infinite: true,
     arrows: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 2500,
     dots: true,
     responsive: [{
       breakpoint: 1024,
