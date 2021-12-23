@@ -28,7 +28,7 @@ export class BuyProductComponent implements OnInit {
   Tru() {
       if(this.sohang >= 2) {
        this.sohang = this.sohang - 1;
-       this.tong = this.tien / this.sohang;
+       this.tong = this.tong - this.tien;
       }
   }
 
@@ -40,6 +40,7 @@ export class BuyProductComponent implements OnInit {
   }
   ngOnInit(): void {
     this.Tong();
+    this.Tru();
   }
 
     validateForm: FormGroup;
