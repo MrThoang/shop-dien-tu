@@ -25,7 +25,7 @@ export class BuyProductComponent implements OnInit {
       }
   }
 
-  Tru() {
+  Tru(){
       if(this.sohang >= 2) {
        this.sohang = this.sohang - 1;
        this.tong = this.tong - this.tien;
